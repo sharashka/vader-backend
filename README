@@ -1,0 +1,7 @@
+To run
+
+docker-compose up --build
+
+Then you can check that server is running at localhost:11000
+
+curl localhost:11000/status
