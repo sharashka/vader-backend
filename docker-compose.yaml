@@ -1,6 +1,7 @@
 version: '3'
 services:
   backend:
+    container_name: vader_backend_${VADER_BACKEND_BRANCH}
     build: ./
     env_file:
       - ./.env
