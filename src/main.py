@@ -66,3 +66,4 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 @app.get("/api/v1/users/me")
 async def read_users_me(current_user: auth.User = Depends(auth.get_current_active_user)):
     return current_user
+
