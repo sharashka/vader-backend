@@ -13,13 +13,11 @@ def offer_to_dict(xml_offer_tag: Tag) -> dict:
 
     children = [child for child in xml_offer_tag.children if isinstance(child, Tag)]
 
-    top_level_params = {
+    params = {
         child.name: child.text
         for child in children
         if child.name not in ("store", "param")
     }
-
-    top_level_params["vader_id"] = xml_offer_tag.attrs["id"]
 
     freeform_params = {
         child.attrs["name"]: child.text
@@ -33,9 +31,11 @@ def offer_to_dict(xml_offer_tag: Tag) -> dict:
         if child.name == "store"
     }
 
+    params.update(freeform_params)
+
     result = {
-        "top_level": top_level_params,
-        "freeform": freeform_params,
+        "vader_id": xml_offer_tag.attrs["id"],
+        "params": params,
         "stores": stores,
     }
 
