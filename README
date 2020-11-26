@@ -1,11 +1,6 @@
-To set up Git Hooks:
+Format python source:
 
-$ pre-commit install
-
-To recheck everything:
-
-$ pre-commit run --all-files
-
+$ black .
 
 
 
