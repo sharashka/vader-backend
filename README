@@ -14,6 +14,6 @@ curl localhost:11000/status
 
 
 
-Run tests:
+Run tests (all the test_*.py files in the current subtree):
 
 $ python tests/runner.py
