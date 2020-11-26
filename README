@@ -4,10 +4,16 @@ $ black .
 
 
 
-To run:
+Run server:
 
 $ docker-compose up --build
 
 Then you can check that server is running at localhost:11000
 
 curl localhost:11000/status
+
+
+
+Run tests:
+
+$ python tests/runner.py
