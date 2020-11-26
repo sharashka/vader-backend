@@ -1,4 +1,5 @@
 .env
+.pre-commit-config.yaml
 
 # IDE
 *.vim

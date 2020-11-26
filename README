@@ -1,6 +1,12 @@
-To run
+Format python source:
 
-docker-compose up --build
+$ black .
+
+
+
+To run:
+
+$ docker-compose up --build
 
 Then you can check that server is running at localhost:11000
 
