@@ -1,6 +1,17 @@
-To run
+To set up Git Hooks:
 
-docker-compose up --build
+$ pre-commit install
+
+To recheck everything:
+
+$ pre-commit run --all-files
+
+
+
+
+To run:
+
+$ docker-compose up --build
 
 Then you can check that server is running at localhost:11000
 
