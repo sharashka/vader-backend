@@ -4,10 +4,24 @@ $ black .
 
 
 
-To run:
+Use Git Hooks (optional)
+
+$ pre-commit install
+...
+$ pre-commit run --all-files
+
+
+
+Run server:
 
 $ docker-compose up --build
 
 Then you can check that server is running at localhost:11000
 
 curl localhost:11000/status
+
+
+
+Run tests (all the test_*.py files in the current subtree):
+
+$ python tests/runner.py
