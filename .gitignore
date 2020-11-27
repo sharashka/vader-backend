@@ -1,5 +1,4 @@
 .env
-.pre-commit-config.yaml
 
 __pycache__/
 *.egg-info/

@@ -4,6 +4,14 @@ $ black .
 
 
 
+Use Git Hooks (optional)
+
+$ pre-commit install
+...
+$ pre-commit run --all-files
+
+
+
 Run server:
 
 $ docker-compose up --build
