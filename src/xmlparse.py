@@ -78,8 +78,7 @@ def parse_xml_string(xml_string: str) -> dict:
     return {"offers": offers_dicts, "stores": stores}
 
 
-if __name__ == "__main__":
-    example = """
+example = """
    <?xml version="1.0" encoding="windows-1251"?>
    <offers>
    <offer id="Ц0000007168">
@@ -122,11 +121,14 @@ if __name__ == "__main__":
 				<store id="ЦБ0000023" name="ВС 11 (Ковров-Молл)">1</store>
 				<store id="О00000007" name="Распределительный центр">9</store>
 			</offer>
-			
+
    </offers>
-   
-   
+
+
    """
+
+
+if __name__ == "__main__":
     import pprint
 
     pprint.pprint(parse_xml_string(example))
