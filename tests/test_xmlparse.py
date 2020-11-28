@@ -10,6 +10,26 @@ def to_bs_tag(tag_name: str, xml_string: str) -> Tag:
     return offer
 
 
+TAG_OFFER = to_bs_tag(
+    "offer",
+    """
+    <offer id="Ц0000007168">
+        <аrticle>5826-Л/5226-А</аrticle>
+        <name>Купальник для девочек Skat</name>
+        <price>999</price>
+        <НоваяКоллекция>Нет</НоваяКоллекция>
+        <ЛучшийВыбор>Да</ЛучшийВыбор>
+        <ЛучшаяЦена>Нет</ЛучшаяЦена>
+        <param name="Размеровка">36</param>
+        <param name="Сезон">SS 2019</param>
+        <param name="Цвет">Розовый/голубой/желтый</param>
+        <store id="О00000002" name="ВС 6 (ЕвроЛэнд)">1</store>
+        <store id="ЦБ0000014" name="ВС 8 (Серебряный город)">1</store>
+    </offer>
+    """,
+)
+
+
 class TestHelpers(unittest.TestCase):
     def setUp(self):
         pass
@@ -22,26 +42,7 @@ class TestHelpers(unittest.TestCase):
 
     def test_offer_to_dict(self):
         self.assertEqual(
-            xmlparse.offer_to_dict(
-                to_bs_tag(
-                    "offer",
-                    """
-                    <offer id="Ц0000007168">
-                    <аrticle>5826-Л/5226-А</аrticle>
-                    <name>Купальник для девочек Skat</name>
-                    <price>999</price>
-                    <НоваяКоллекция>Нет</НоваяКоллекция>
-                    <ЛучшийВыбор>Да</ЛучшийВыбор>
-                    <ЛучшаяЦена>Нет</ЛучшаяЦена>
-                    <param name="Размеровка">36</param>
-                    <param name="Сезон">SS 2019</param>
-                    <param name="Цвет">Розовый/голубой/желтый</param>
-                    <store id="О00000002" name="ВС 6 (ЕвроЛэнд)">1</store>
-                    <store id="ЦБ0000014" name="ВС 8 (Серебряный город)">1</store>
-                    </offer>
-                """,
-                )
-            ),
+            xmlparse.offer_to_dict(TAG_OFFER),
             {
                 "params": {
                     "name": "Купальник для девочек Skat",
@@ -104,7 +105,7 @@ class TestHelpers(unittest.TestCase):
 
     def test_parse_xml_string(self):
         self.assertEqual(
-            xmlparse.parse_xml_string(xmlparse.example),
+            xmlparse.parse_xml_string(EXAMPLE),
             {
                 "offers": [
                     {
@@ -171,3 +172,50 @@ class TestHelpers(unittest.TestCase):
                 },
             },
         )
+
+
+EXAMPLE = """
+<?xml version="1.0" encoding="windows-1251"?>
+<offers>
+        <offer id="Ц0000007168">
+                <аrticle>5826-Л/5226-А</аrticle>
+                <name>Купальник для девочек Skat</name>
+                <price>999</price>
+                <НоваяКоллекция>Нет</НоваяКоллекция>
+                <ЛучшийВыбор>Да</ЛучшийВыбор>
+                <ЛучшаяЦена>Нет</ЛучшаяЦена>
+                <param name="Размеровка">36</param>
+                <param name="Сезон">SS 2019</param>
+                <param name="Цвет">Розовый/голубой/желтый</param>
+                <store id="О00000003" name="ВС 1 (Толбухина)">1</store>
+                <store id="О00000005" name="ВС 4 (Лента)">1</store>
+                <store id="О00000006" name="ВС 5 (Флагман)">1</store>
+                <store id="О00000002" name="ВС 6 (ЕвроЛэнд)">1</store>
+                <store id="О00000004" name="ВС 7 (М5-Молл)">1</store>
+                <store id="ЦБ0000014" name="ВС 8 (Серебряный город)">1</store>
+                <store id="ЦБ0000017" name="ВС 9 (Вернисаж)">1</store>
+                <store id="ЦБ0000023" name="ВС 11 (Ковров-Молл)">2</store>
+                <store id="О00000007" name="Распределительный центр">9</store>
+        </offer>
+        <offer id="Ц0000007169">
+                <аrticle>5826-Л/5226-А</аrticle>
+                <name>Купальник для девочек Skat</name>
+                <price>999</price>
+                <НоваяКоллекция>Нет</НоваяКоллекция>
+                <ЛучшийВыбор>Да</ЛучшийВыбор>
+                <ЛучшаяЦена>Нет</ЛучшаяЦена>
+                <param name="Размеровка">38</param>
+                <param name="Сезон">SS 2019</param>
+                <param name="Цвет">Розовый/голубой/желтый</param>
+                <store id="О00000003" name="ВС 1 (Толбухина)">1</store>
+                <store id="О00000005" name="ВС 4 (Лента)">1</store>
+                <store id="О00000006" name="ВС 5 (Флагман)">1</store>
+                <store id="О00000002" name="ВС 6 (ЕвроЛэнд)">1</store>
+                <store id="О00000004" name="ВС 7 (М5-Молл)">1</store>
+                <store id="ЦБ0000014" name="ВС 8 (Серебряный город)">1</store>
+                <store id="ЦБ0000017" name="ВС 9 (Вернисаж)">1</store>
+                <store id="ЦБ0000023" name="ВС 11 (Ковров-Молл)">1</store>
+                <store id="О00000007" name="Распределительный центр">9</store>
+        </offer>
+</offers>
+   """
