@@ -25,3 +25,7 @@ curl localhost:11000/status
 Run tests (all the test_*.py files in the current subtree):
 
 $ python tests/runner.py
+
+Install additional packages for local development
+
+$ pip install -r requirements-dev.txt
